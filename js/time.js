@@ -1,6 +1,6 @@
 const time = document.querySelector('.time')
 const dateHTML = document.querySelector('.date')
-const options = { month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZone: 'UTC' }
+const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZone: 'UTC' }
 
 var date = new Date();
 var currentTime = date.toLocaleTimeString();
