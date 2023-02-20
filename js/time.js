@@ -11,6 +11,7 @@ function showTime() {
     currentTime = date.toLocaleTimeString();
     time.textContent = currentTime;
     showDate();
+    showGreeting();
     setTimeout(showTime, 1000);
 }
 
