@@ -6,7 +6,7 @@ const slidePrev = document.querySelector('.slide-prev');
 var date = new Date();
 var hours = date.getHours();
 let timeOfDay = getTimeOfDay(hours);
-let bgNum = 1;
+let bgNum = Math.round(Math.random() * (20 - 1) + 1);
 
 function getTimeOfDay(hours) {
     switch (Math.trunc(hours / 6)) {
@@ -29,6 +29,8 @@ function setBg() {
         body.style.backgroundImage = `url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg')`;
     }
 }
+
+setBg();
 
 function getSlideNext() {
     bgNum = +bgNum + 1;
