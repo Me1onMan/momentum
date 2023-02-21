@@ -3,9 +3,12 @@ const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
 const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
+const cityField = document.querySelector('.city');
+
+let url = `https://api.openweathermap.org/data/2.5/weather?q=Minsk&lang=en&appid=85f75a5a4ec6ecc275980c9452b37b07&units=metric`;
 
 async function getWeather() {  
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=Минск&lang=en&appid=90e166c017ac61a4ab7f663419c4da04&units=metric`;
+    //const url = `https://api.openweathermap.org/data/2.5/weather?q=Minsk&lang=en&appid=85f75a5a4ec6ecc275980c9452b37b07&units=metric`;
     const res = await fetch(url);
     const data = await res.json(); 
 
@@ -18,4 +21,13 @@ async function getWeather() {
     humidity.textContent = `Humidity: ${data.main.humidity}%`
 }
 
+function changeWeather() {
+    const city = cityField.value;
+    console.log(city);
+    url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=en&appid=85f75a5a4ec6ecc275980c9452b37b07&units=metric`;
+    getWeather();
+}
+
 getWeather()
+
+cityField.addEventListener('change', changeWeather);
