@@ -8,7 +8,6 @@ const cityField = document.querySelector('.city');
 let url = `https://api.openweathermap.org/data/2.5/weather?q=Minsk&lang=en&appid=85f75a5a4ec6ecc275980c9452b37b07&units=metric`;
 
 async function getWeather() {  
-    //const url = `https://api.openweathermap.org/data/2.5/weather?q=Minsk&lang=en&appid=85f75a5a4ec6ecc275980c9452b37b07&units=metric`;
     const res = await fetch(url);
     const data = await res.json(); 
 
@@ -27,6 +26,19 @@ function changeWeather() {
     url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=en&appid=85f75a5a4ec6ecc275980c9452b37b07&units=metric`;
     getWeather();
 }
+
+function setLocalStorageWeather() {
+    localStorage.setItem('cityWeather', cityField.value);
+}
+window.addEventListener('beforeunload', setLocalStorageWeather)
+
+function getLocalStorageWeather() {
+    if(localStorage.getItem('cityWeather')) {
+        cityField.value = localStorage.getItem('cityWeather');
+    }
+    changeWeather();
+}
+window.addEventListener('load', getLocalStorageWeather)
 
 getWeather()
 
