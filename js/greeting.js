@@ -31,10 +31,10 @@ function showDate() {
 
 function getTimeOfDay(hours) {
     switch (Math.trunc(hours / 6)) {
-        case 0: return night;
-        case 1: return morning;
-        case 2: return afternoon;
-        case 3: return evening;
+        case 0: return 'night';
+        case 1: return 'morning';
+        case 2: return 'afternoon';
+        case 3: return 'evening';
     }
 }
 
