@@ -45,14 +45,14 @@ function showGreeting() {
 
 function setLocalStorage() {
     localStorage.setItem('name', nameIn.value);
-  }
+}
 window.addEventListener('beforeunload', setLocalStorage)
 
 function getLocalStorage() {
     if(localStorage.getItem('name')) {
         nameIn.value = localStorage.getItem('name');
     }
-  }
+}
 window.addEventListener('load', getLocalStorage)
 
 showTime();
